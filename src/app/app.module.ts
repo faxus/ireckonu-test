@@ -6,13 +6,15 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
 import { MyApp } from "./app.component";
-import { HomePage } from "../pages/home/home";
-import { RestProvider } from "../providers/rest/rest";
+import { EventsPage } from "../pages/index";
+import { UI_COMPONENTS } from "../components/index";
+import { EventService, EventClient } from "../providers/index";
 
 @NgModule({
 	declarations: [
 		MyApp,
-		HomePage
+		EventsPage,
+		UI_COMPONENTS
 	],
 	imports: [
 		BrowserModule,
@@ -22,13 +24,14 @@ import { RestProvider } from "../providers/rest/rest";
 	bootstrap: [IonicApp],
 	entryComponents: [
 		MyApp,
-		HomePage
+		EventsPage
 	],
 	providers: [
 		StatusBar,
 		SplashScreen,
 		{ provide: ErrorHandler, useClass: IonicErrorHandler },
-		RestProvider
+		EventService,
+		EventClient
 	]
 })
 export class AppModule { }

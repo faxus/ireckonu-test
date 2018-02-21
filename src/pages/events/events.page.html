@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>
+			Events
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-list>
+		<ion-item *ngFor="let event of events">
+			<event-thumb eventDate="{{event.date}}" eventImg={{event.imageUrl}}></event-thumb>
+			<div item-content>
+				<h2>{{event.title}}</h2>
+				<h5>{{getTime(event.date)}}</h5>
+				<!-- todo: component -->
+				<div class="members">
+					<ion-avatar *ngFor="let member of event.members.slice(0,3)">
+						<img src="{{member.imageUrl}}" />
+					</ion-avatar>
+					{{getMembersCount(event.members.length)}}
+				</div>
+				<div>Status: {{event.status}}</div>
+
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-content>

@@ -1,31 +1,22 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { map, catchError } from "rxjs/operators";
+import { catchError } from "rxjs/operators";
 
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
-export class RestProvider {
-	private apiUrl = "https://restcountries.eu/rest/v2/all";
-	constructor(public http: HttpClient) {
+export class EventClient {
+	//  https://restcountries.eu/rest/v2/all
+	private apiUrl = "https://tsh-app.firebaseio.com/events.json";
+	constructor(
+		private http: HttpClient
+	) {
 
 	}
 
-	getCountries(): Observable<{}> {
+	getEvents(): Observable<any> {
 		return this.http.get(this.apiUrl).pipe(
-			map(this.extractData),
 			catchError(this.handleError)
 		);
-	}
-
-	private extractData(res: Response) {
-		const body = res;
-		return body || {};
 	}
 
 	private handleError(error: Response | any) {

@@ -1,0 +1,15 @@
+
+event-thumb {
+	display: inline-block;
+
+	.thumb-text {
+		color: #fff;
+		font-size: 33px;
+		position: absolute;
+		text-align: center;
+		top: 30%;
+		white-space: normal;
+		width: $thumb-text-width;
+	}
+}
+
