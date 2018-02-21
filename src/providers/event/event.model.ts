@@ -3,17 +3,17 @@ import { Moment } from "moment";
 export type StatusType = "going" | "ignore" | "none";
 export type DateGroup = "past" | "today" | "tomorrow" | "next-week" | "next-month";
 
-export interface Event {
-	id: number;
+export interface EventItem {
+	id: string;
 	title: string;
 	description: string;
 	date: Moment;
 	imageUrl: string;
 	status: StatusType;
-	memebers: Member[];
+	members: Member[];
 }
 
 export interface Member {
-	id: number;
+	id: string;
 	imageUrl: string;
 }

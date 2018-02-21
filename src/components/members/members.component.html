@@ -1,0 +1,4 @@
+<ion-avatar *ngFor="let member of memberList.slice(0,3)">
+	<img src="{{member.imageUrl}}" />
+</ion-avatar>
+<span>{{getMembersCount(memberList.length)}}</span>

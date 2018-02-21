@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
 import { EventClient } from "./event.client";
-import { Event } from "./event.model";
+import { EventItem } from "./event.model";
 import { formatDate } from "./event.util";
 
 @Injectable()
@@ -13,13 +13,13 @@ export class EventService {
 
 	}
 
-	getEvents(): Observable<Event[]> {
+	getEvents(): Observable<EventItem[]> {
 		return this.client.getEvents().pipe(
 			map(this.extractData)
 		);
 	}
 
-	private extractData(res: any): Event[] {
+	private extractData(res: any): EventItem[] {
 		if (!res) return [];
 		return res.map((row) => {
 			return {

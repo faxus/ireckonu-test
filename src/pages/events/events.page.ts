@@ -1,8 +1,6 @@
 import { Component } from "@angular/core";
 import { Subscription } from "rxjs/Subscription";
-// import { NavController } from "ionic-angular";
-import { EventService, Event } from "../../providers/index";
-import { Moment } from "moment";
+import { EventService, EventItem } from "../../providers/index";
 
 @Component({
 	selector: "events-page",
@@ -10,34 +8,24 @@ import { Moment } from "moment";
 })
 export class EventsPage {
 
-	events: Event[];
+	eventList: EventItem[];
 	errorMessage: string;
 	events$$: Subscription;
 
 	constructor(
-		// private navCtrl: NavController,
 		private eventService: EventService
 	) {
 
 	}
 
-	//Use ngOnInit if no need of NavController
 	ionViewDidLoad() {
 		this.events$$ = this.eventService.getEvents()
 			.subscribe(
 				events => {
-					this.events = events
+					this.eventList = events
 						.sort((prev,next) => prev.date.diff(next.date))
 				},
 				error => this.errorMessage = <any>error);
-	}
-
-	getMembersCount(num): string {
-		return num > 3 ? `+ ${num - 3} members` : "";
-	}
-
-	getTime(date: Moment): string {
-		return date.fromNow() + date.format("HH.mm");
 	}
 
 	ngOnDestroy() {

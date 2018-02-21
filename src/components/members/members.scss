@@ -1,0 +1,10 @@
+members {
+	display: inline-block;
+	ion-avatar {
+		float: left;
+		img {
+			height: $avatar-img-size;
+			width: $avatar-img-size;
+		}
+	}
+}

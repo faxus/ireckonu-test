@@ -4,7 +4,7 @@ import { Moment } from "moment";
 
 @Component({
 	selector: "event-thumb",
-	templateUrl: "event-thumbnail.html"
+	templateUrl: "event-thumbnail.component.html"
 })
 export class EventThumbnail {
 
