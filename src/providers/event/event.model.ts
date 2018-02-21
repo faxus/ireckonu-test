@@ -1,6 +1,7 @@
 import { Moment } from "moment";
 
 export type StatusType = "going" | "ignore" | "none";
+
 export type DateGroup = "past" | "today" | "tomorrow" | "next-week" | "next-month";
 
 export interface EventItem {

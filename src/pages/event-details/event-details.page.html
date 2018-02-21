@@ -1,0 +1,25 @@
+<ion-content>
+	<img *ngIf="eventItem" src="{{eventItem.imageUrl}}" />
+	<div class="details-content" *ngIf="eventItem">
+		<!-- <div [style.background-image]="{{eventItem.imageUrl}}">	</div> -->
+			<b class="title">{{eventItem.title}}</b>
+			<small class="subtitle">Public Event - TSH Amsterdam City</small>
+			<div>
+				<ion-icon name="clock" item-left></ion-icon>
+				<span>{{eventItem.date}}</span>
+			</div>
+			<div>
+				<ion-icon name="pin" item-left></ion-icon>
+				<span> location</span>
+			</div>
+			<div>
+				<ion-icon name="clock" item-left></ion-icon>
+				<span>{{eventItem.members.length - 2}}</span>
+			</div>
+			<members [memberList]="eventItem.members"></members>
+			<p>{{eventItem.description}}</p>
+			<ion-input type="text" value="" placeholder="Leave a message..."></ion-input>
+			<!-- more components -->
+	</div>
+
+</ion-content>

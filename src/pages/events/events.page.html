@@ -8,6 +8,7 @@
 
 <ion-content padding>
 	<ion-list>
-		<event-item [eventItem]="event" *ngFor="let event of eventList"></event-item>
+		<event-item *ngFor="let event of eventList"
+		[eventItem]="event" (click)="onItemClick(event)"></event-item>
 	</ion-list>
 </ion-content>

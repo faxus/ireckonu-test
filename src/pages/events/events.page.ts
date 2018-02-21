@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
+import { NavController } from "ionic-angular";
 import { Subscription } from "rxjs/Subscription";
 import { EventService, EventItem } from "../../providers/index";
+import { EventDetailsPage } from "../../pages/event-details/event-details.page";
 
 @Component({
 	selector: "events-page",
@@ -13,9 +15,16 @@ export class EventsPage {
 	events$$: Subscription;
 
 	constructor(
-		private eventService: EventService
+		private eventService: EventService,
+		private navCtrl: NavController
 	) {
 
+	}
+
+	onItemClick(item: EventItem) {
+		this.navCtrl.push(EventDetailsPage, {
+			event: item
+		});
 	}
 
 	ionViewDidLoad() {

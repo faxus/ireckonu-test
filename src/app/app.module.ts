@@ -6,14 +6,14 @@ import { SplashScreen } from "@ionic-native/splash-screen";
 import { StatusBar } from "@ionic-native/status-bar";
 
 import { MyApp } from "./app.component";
-import { EventsPage } from "../pages/index";
+import { APP_PAGES } from "../pages/index";
 import { UI_COMPONENTS } from "../components/index";
 import { EventService, EventClient } from "../providers/index";
 
 @NgModule({
 	declarations: [
 		MyApp,
-		EventsPage,
+		APP_PAGES,
 		UI_COMPONENTS
 	],
 	imports: [
@@ -24,7 +24,7 @@ import { EventService, EventClient } from "../providers/index";
 	bootstrap: [IonicApp],
 	entryComponents: [
 		MyApp,
-		EventsPage
+		APP_PAGES
 	],
 	providers: [
 		StatusBar,

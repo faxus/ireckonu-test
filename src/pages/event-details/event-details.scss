@@ -1,0 +1,17 @@
+event-details-page {
+
+	.details-content {
+		padding: 0 $content-padding
+	}
+
+	.title {
+		display: block;
+		font-size: 30px;
+		text-transform: uppercase;
+	}
+
+	.subtitle {
+		display: block;
+		color: grey;
+	}
+}

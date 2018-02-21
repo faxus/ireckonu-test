@@ -10,7 +10,7 @@ export class MembersComponent {
 	@Input() memberList: Member[];
 
 	getMembersCount(num): string {
-		return num > 3 ? `+ ${num - 3} members` : "";
+		return num > 3 ? `+ ${num - 3} others` : "";
 	}
 
 }
