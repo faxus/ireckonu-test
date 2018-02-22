@@ -1,5 +1,12 @@
 event-details-page {
 
+	.back-button {
+		color: white;
+		display: block;
+		font-size: large;
+		position: absolute;
+	}
+
 	.details-content {
 		padding: 0 $content-padding
 	}
@@ -7,7 +14,6 @@ event-details-page {
 	.title {
 		display: block;
 		font-size: 30px;
-		text-transform: uppercase;
 	}
 
 	.subtitle {

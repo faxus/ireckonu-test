@@ -1,3 +1,26 @@
 event-item {
-	display: inline-block;
+	display: block;
+
+	.item [item-left] {
+		margin: 0;
+	}
+
+	.time,
+	.title {
+		display: block;
+		font-weight: bold;
+		letter-spacing: -1px;
+	}
+
+	.title {
+		font-size: 17px;
+	}
+
+	.time {
+		font-size: 13px;
+	}
+
+	.event-content {
+		width: 100%;
+	}
 }

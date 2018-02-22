@@ -14,17 +14,18 @@ $colors: (
 );
 
 // Custom variables
-$thumb-text-width: 90px;
+$thumb-text-width: 100px;
 $avatar-img-size: 3rem;
+$yellow-color: #fdba00fa;
 
 // App iOS Variables
-$item-ios-thumbnail-size: 90px;
+$item-ios-thumbnail-size: 100px;
 
 // App Material Design Variables
-$item-md-thumbnail-size: 90px;
+$item-md-thumbnail-size: 100px;
 
 // App Windows Variables
-$item-wp-thumbnail-size: 90px;
+$item-wp-thumbnail-size: 100px;
 
 @import "ionic.theme.default";
 

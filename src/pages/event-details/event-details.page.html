@@ -1,8 +1,10 @@
 <ion-content>
+	<div class="back-button" padding>
+		<ion-icon name="arrow-back" (click)="goBack()"></ion-icon>
+	</div>
 	<img *ngIf="eventItem" src="{{eventItem.imageUrl}}" />
 	<div class="details-content" *ngIf="eventItem">
-		<!-- <div [style.background-image]="{{eventItem.imageUrl}}">	</div> -->
-			<b class="title">{{eventItem.title}}</b>
+			<b class="title" text-uppercase>{{eventItem.title}}</b>
 			<small class="subtitle">Public Event - TSH Amsterdam City</small>
 			<div>
 				<ion-icon name="clock" item-left></ion-icon>

@@ -1,9 +1,9 @@
-<ion-item >
-	<event-thumb item-start eventDate="{{eventItem.date}}" eventImg={{eventItem.imageUrl}}></event-thumb>
-	<div item-content>
-		<h2>{{eventItem.title}}</h2>
-		<h5>{{getTime(eventItem.date)}}</h5>
+<ion-item no-padding padding-vertical no-lines>
+	<event-thumb item-left eventDate="{{eventItem.date}}" eventImg={{eventItem.imageUrl}}></event-thumb>
+	<div item-content class="event-content">
+		<span class="title" text-uppercase>{{eventItem.title}}</span>
+		<span class="time">{{getTime(eventItem.date)}}</span>
 		<members [memberList]="eventItem.members"></members>
-		<div>Status: {{eventItem.status}}</div>
+		<event-status status="{{eventItem.status}}"></event-status>
 	</div>
 </ion-item>
