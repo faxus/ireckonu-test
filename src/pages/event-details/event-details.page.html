@@ -4,24 +4,26 @@
 	</div>
 	<img *ngIf="eventItem" src="{{eventItem.imageUrl}}" />
 	<div class="details-content" *ngIf="eventItem">
-			<b class="title" text-uppercase>{{eventItem.title}}</b>
-			<small class="subtitle">Public Event - TSH Amsterdam City</small>
-			<div>
-				<ion-icon name="clock" item-left></ion-icon>
-				<span>{{eventItem.date}}</span>
+		<b class="title" text-uppercase>{{eventItem.title}}</b>
+		<span class="subtitle" margin-bottom>Public Event - TSH Amsterdam City</span>
+			<div class="icon-text">
+				<ion-icon margin-right name="md-time" item-left></ion-icon>
+				<span>Sunday June, 19 from 9.30 PM - 11 PM</span>
 			</div>
-			<div>
-				<ion-icon name="pin" item-left></ion-icon>
-				<span> location</span>
+			<div class="icon-text">
+				<ion-icon margin-right name="ios-pin-outline" item-left></ion-icon>
+				<span> The Pool - The Student Hotel Amsterdam City</span>
 			</div>
-			<div>
-				<ion-icon name="clock" item-left></ion-icon>
-				<span>{{eventItem.members.length - 2}}</span>
+			<div class="icon-text">
+				<ion-icon margin-right name="ios-speedometer-outline" item-left></ion-icon>
+				<span>15 Going</span>
 			</div>
-			<members [memberList]="eventItem.members"></members>
-			<p>{{eventItem.description}}</p>
-			<ion-input type="text" value="" placeholder="Leave a message..."></ion-input>
-			<!-- more components -->
+			<members margin-horizontal [memberList]="eventItem.members" show="8"></members>
+			<div padding-vertical class="description">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</div>
 	</div>
+	<ion-input padding-horizontal type="text" value="" placeholder="Leave a message..."></ion-input>
+	<!-- more components -->
 
 </ion-content>

@@ -2,15 +2,15 @@ members {
 	align-items: center;
 	display: flex;
 	padding: 6px 14px;
-	width: 100%;
+
 
 	ion-avatar {
 		display: inline-block;
-		margin-left: -12px;
+		margin-left: -10px;
 
 		img {
-			height: $avatar-img-size;
-			width: $avatar-img-size;
+			height: $member-img-size;
+			width: $member-img-size;
 		}
 	}
 

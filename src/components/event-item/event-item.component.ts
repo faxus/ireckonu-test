@@ -1,10 +1,11 @@
-import { Input, Component } from "@angular/core";
+import { Input, Component, ChangeDetectionStrategy } from "@angular/core";
 import { EventItem, StatusType } from "../../providers/index";
 import { Moment } from "moment";
 
 @Component({
 	selector: "event-item",
-	templateUrl: "event-item.component.html"
+	templateUrl: "event-item.component.html",
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventItemComponent {
 

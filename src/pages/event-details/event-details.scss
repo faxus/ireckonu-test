@@ -1,5 +1,17 @@
 event-details-page {
 
+	ion-input {
+		background-color: white;
+		margin: 3px 0;
+	}
+
+	members {
+		img {
+			height: 35px;
+			width: 35px;
+		}
+	}
+
 	.back-button {
 		color: white;
 		display: block;
@@ -8,16 +20,31 @@ event-details-page {
 	}
 
 	.details-content {
-		padding: 0 $content-padding
+		background-color: white;
+		padding: 0 $content-padding;
+		font-size: 12px;
 	}
 
 	.title {
 		display: block;
-		font-size: 30px;
+		font-size: 28px;
+		letter-spacing: -1px;
 	}
 
 	.subtitle {
+		padding: 0 10px;
 		display: block;
 		color: grey;
 	}
+
+	.icon-text {
+		display: flex;
+		padding: 5px 10px;
+
+		ion-icon {
+			font-size: 18px;
+			width: 11px;
+		}
+	}
+
 }

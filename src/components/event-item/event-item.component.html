@@ -3,7 +3,7 @@
 	<div item-content class="event-content">
 		<span class="title" text-uppercase>{{eventItem.title}}</span>
 		<span class="time">{{getTime(eventItem.date)}}</span>
-		<members [memberList]="eventItem.members"></members>
+		<members [memberList]="eventItem.members" show="3"></members>
 		<event-status status="{{eventItem.status}}" (statusChange)="handleStatusChange($event)"></event-status>
 	</div>
 </ion-item>

@@ -1,4 +1,4 @@
-<ion-avatar *ngFor="let member of memberList.slice(0,3)">
+<ion-avatar *ngFor="let member of memberList.slice(0, this.show)">
 	<img src="{{member.imageUrl}}" />
 </ion-avatar>
 <div class="others">

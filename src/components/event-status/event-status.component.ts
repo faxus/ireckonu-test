@@ -1,9 +1,10 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from "@angular/core";
 import { StatusType } from "../../providers";
 
 @Component({
 	selector: "event-status",
-	templateUrl: "event-status.component.html"
+	templateUrl: "event-status.component.html",
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class EventStatusComponent {
@@ -14,7 +15,7 @@ export class EventStatusComponent {
 	constructor() { }
 
 	onChangeState(value: StatusType) {
-		if(this.isActive(value))
+		if (this.isActive(value))
 			value = "none"; // reset the status
 		this.statusChange.emit(value);
 		event.stopPropagation();

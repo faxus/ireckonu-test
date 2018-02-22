@@ -1,10 +1,11 @@
-import { Input, Component } from "@angular/core";
+import { Input, Component, ChangeDetectionStrategy } from "@angular/core";
 import * as moment from "moment";
 import { Moment } from "moment";
 
 @Component({
 	selector: "event-thumb",
-	templateUrl: "event-thumbnail.component.html"
+	templateUrl: "event-thumbnail.component.html",
+	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EventThumbnail {
 
