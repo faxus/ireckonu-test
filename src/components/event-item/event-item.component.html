@@ -4,6 +4,6 @@
 		<span class="title" text-uppercase>{{eventItem.title}}</span>
 		<span class="time">{{getTime(eventItem.date)}}</span>
 		<members [memberList]="eventItem.members"></members>
-		<event-status status="{{eventItem.status}}"></event-status>
+		<event-status status="{{eventItem.status}}" (statusChange)="handleStatusChange($event)"></event-status>
 	</div>
 </ion-item>

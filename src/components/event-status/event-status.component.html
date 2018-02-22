@@ -1,8 +1,8 @@
-<button value="going" class="{{activeClass('going')}}" *ngIf="isVisible('going')" (click)="changeState($event)">
+<button value="going" class="{{activeClass('going')}}" *ngIf="isVisible('going')" (click)="onChangeState($event.target.value)">
 	<ion-icon *ngIf="isActive('going')" name="checkmark"></ion-icon>
 	Going
 </button>
-<button value="ignore" class="{{activeClass('ignore')}}" *ngIf="isVisible('ignore')" (click)="changeState($event)">
+<button value="ignore" class="{{activeClass('ignore')}}" *ngIf="isVisible('ignore')" (click)="onChangeState($event.target.value)">
 	<ion-icon *ngIf="isActive('ignore')" name="checkmark"></ion-icon>
 	Ignore
 </button>

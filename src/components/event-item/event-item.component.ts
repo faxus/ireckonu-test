@@ -1,5 +1,5 @@
 import { Input, Component } from "@angular/core";
-import { EventItem } from "../../providers/index";
+import { EventItem, StatusType } from "../../providers/index";
 import { Moment } from "moment";
 
 @Component({
@@ -14,7 +14,11 @@ export class EventItemComponent {
 	) {
 	}
 
-	getMembersCount(num): string {
+	handleStatusChange(newStatus: StatusType) {
+		this.eventItem.status = newStatus;
+	}
+
+	getMembersCount(num: number): string {
 		return num > 3 ? `+ ${num - 3} members` : "";
 	}
 

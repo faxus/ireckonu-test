@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { StatusType } from "../../providers";
 
 @Component({
@@ -9,11 +9,14 @@ import { StatusType } from "../../providers";
 export class EventStatusComponent {
 
 	@Input() status: StatusType
+	@Output() statusChange = new EventEmitter<StatusType>();
 
 	constructor() { }
 
-	changeState(event) {
-		console.log(event.target.value);
+	onChangeState(value: StatusType) {
+		if(this.isActive(value))
+			value = "none"; // reset the status
+		this.statusChange.emit(value);
 		event.stopPropagation();
 	}
 
