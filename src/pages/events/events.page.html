@@ -9,10 +9,14 @@
 <ion-content padding>
 	<ion-searchbar (ionInput)="filterEvents($event.target.value)" debounce="500"></ion-searchbar>
 	<ion-list>
-		<event-item *ngFor="let event of filteredList$ | async"
-		[eventItem]="event" (click)="onItemClick(event)"></event-item>
+		<ion-list-header>Today</ion-list-header>
+		<event-item *ngFor="let event of todayList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
+		<ion-list-header>Next Week</ion-list-header>
+		<event-item *ngFor="let event of thisWeekList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
+		<ion-list-header>Other</ion-list-header>
+		<event-item *ngFor="let event of otherList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
 	</ion-list>
-	<h2 *ngIf="isEmpty" class="empty-message" text-center >
+	<h2 *ngIf="isEmpty" class="empty-message" text-center>
 		No events
 	</h2>
 </ion-content>

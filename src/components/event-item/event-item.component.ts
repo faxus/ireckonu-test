@@ -12,7 +12,6 @@ export class EventItemComponent {
 
 	constructor(
 	) {
-
 	}
 
 	getMembersCount(num): string {
@@ -20,7 +19,15 @@ export class EventItemComponent {
 	}
 
 	getTime(date: Moment): string {
-		return date.fromNow() + date.format("HH.mm");
+		const periods = {
+			sameDay: "[Today]",
+			nextDay: "[Tomorrow]",
+			nextWeek: "dddd",
+			lastDay: "[Yesterday]",
+			lastWeek: "[Last] dddd",
+			sameElse: "DD MMM"
+		};
+		return `${date.calendar(null, periods)}, from ${date.format("HH.mm")}`;
 	}
 
 }

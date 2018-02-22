@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { map } from "rxjs/operators";
 import { EventClient } from "./event.client";
 import { EventItem } from "./event.model";
-import { formatDate } from "./event.util";
+import { formatDate, getPeriod } from "./event.util";
 
 @Injectable()
 export class EventService {
@@ -27,6 +27,7 @@ export class EventService {
 				title: row.title,
 				description: row.description,
 				date: formatDate(row.dateTime),
+				period: getPeriod(row.dateTime),
 				imageUrl: row.image,
 				status: row.status,
 				members: row.members
