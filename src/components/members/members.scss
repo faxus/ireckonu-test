@@ -1,10 +1,14 @@
 members {
 	display: inline-block;
+	margin: 5px 0;
+
 	ion-avatar {
 		float: left;
-		img {
-			height: $avatar-img-size;
-			width: $avatar-img-size;
-		}
+	}
+
+	.others {
+		display: inline;
+		font-size: 13px;
+		vertical-align: middle;
 	}
 }
