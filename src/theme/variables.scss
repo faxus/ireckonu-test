@@ -14,21 +14,27 @@ $colors: (
 );
 
 // Custom variables
-$thumb-text-width: 100px;
 $avatar-img-size: 30px;
 $yellow-color: #fdba00fa;
+$app-background-color: #f6f6f6;
 
 // App iOS Variables
 $item-ios-thumbnail-size: 100px;
 $item-ios-avatar-size: 30px;
+$searchbar-ios-background-color: $app-background-color;
+$searchbar-ios-padding-horizontal: 32px;
 
 // App Material Design Variables
 $item-md-thumbnail-size: 100px;
-$item-ios-avatar-size: 30px;
+$item-md-avatar-size: 30px;
+$searchbar-md-background-color: $app-background-color;
+$searchbar-md-padding-horizontal: 32px;
 
 // App Windows Variables
 $item-wp-thumbnail-size: 100px;
-$item-ios-avatar-size: 30px;
+$item-wp-avatar-size: 30px;
+$searchbar-wp-background-color: $app-background-color;
+$searchbar-wp-padding-horizontal: 32px;
 
 @import "ionic.theme.default";
 

@@ -10,10 +10,13 @@ export class EventThumbnail {
 
 	@Input() eventDate: Moment;
 	@Input() eventImg: string;
-	errorMessage: string;
 
-	getDate(date: Moment): string {
-		return moment(date).format("DD MMM");
+	getDay(date: Moment) {
+		return moment(date).format("DD");
+	}
+
+	getMonth(date: Moment) {
+		return moment(date).format("MMM");
 	}
 
 }

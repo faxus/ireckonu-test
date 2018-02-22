@@ -1,4 +1,7 @@
 <ion-thumbnail>
 	<img src="{{eventImg}}" />
-	<span class="thumb-text" >{{getDate(eventDate)}}</span>
+	<div class="thumb-text" >
+		<div text-uppercase class="day">{{getDay(eventDate)}}</div>
+		<div text-uppercase class="month">{{getMonth(eventDate)}}</div>
+	</div>
 </ion-thumbnail>

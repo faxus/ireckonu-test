@@ -1,4 +1,11 @@
 events-page {
+	ion-content.content {
+		background-color: $app-background-color;
+	}
+
+	.searchbar {
+		border: 0;
+	}
 
 	.empty-message {
 		opacity: 0.3;
@@ -6,6 +13,8 @@ events-page {
 
 	.period-group {
 		width: 200px;
+		position: relative;
+		z-index: 1;
 
 		label {
 			background-color: $yellow-color;

@@ -1,23 +1,25 @@
 <ion-header>
 	<ion-navbar>
 		<ion-title>
-			Events
+			EVENTS
 		</ion-title>
 	</ion-navbar>
 </ion-header>
 
-<ion-content padding>
-	<ion-searchbar (ionInput)="filterEvents($event.target.value)" debounce="500"></ion-searchbar>
+<ion-content>
+	<ion-searchbar text-center debounce="500"
+		(ionInput)="filterEvents($event.target.value)"
+		placeholder="Search Event"></ion-searchbar>
 	<ion-list>
-		<div class="period-group" margin-vertical *ngIf="todayList && todayList.length > 0">
+		<div class="period-group" margin-top *ngIf="todayList && todayList.length > 0">
 			<label>Today</label>
 		</div>
 		<event-item *ngFor="let event of todayList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
-		<div class="period-group" margin-vertical *ngIf="thisWeekList && thisWeekList.length > 0">
+		<div class="period-group" margin-top *ngIf="thisWeekList && thisWeekList.length > 0">
 			<label>Next Week</label>
 		</div>
 		<event-item *ngFor="let event of thisWeekList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
-		<div class="period-group" margin-vertical *ngIf="otherList && otherList.length > 0">
+		<div class="period-group" margin-top *ngIf="otherList && otherList.length > 0">
 			<label>Other</label>
 		</div>
 		<event-item *ngFor="let event of otherList" [eventItem]="event" (click)="onItemClick(event)"></event-item>

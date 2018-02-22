@@ -1,15 +1,23 @@
 
 event-thumb {
 	display: block;
+	position: relative;
 
 	.thumb-text {
 		color: #fff;
-		font-size: 33px;
 		position: absolute;
 		text-align: center;
-		top: 30%;
-		white-space: normal;
-		width: $thumb-text-width;
+		top: 10%;
+		width: 100%;
+
+		.day {
+			font-size: 45px;
+		}
+
+		.month {
+			font-size: 20px;
+		}
 	}
+
 }
 

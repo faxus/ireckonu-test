@@ -1,9 +1,12 @@
 members {
-	display: inline-block;
-	margin: 5px 0;
+	align-items: center;
+	display: flex;
+	padding: 6px 14px;
+	width: 100%;
 
 	ion-avatar {
-		float: left;
+		display: inline-block;
+		margin-left: -12px;
 
 		img {
 			height: $avatar-img-size;
@@ -12,8 +15,7 @@ members {
 	}
 
 	.others {
-		display: inline;
+		display: inline-block;
 		font-size: 13px;
-		vertical-align: middle;
 	}
 }
