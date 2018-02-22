@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
 import { NavController } from "ionic-angular";
-import { Subscription } from "rxjs/Subscription";
 import { EventService, EventItem } from "../../providers/index";
 import { EventDetailsPage } from "../../pages/event-details/event-details.page";
+import { Observable } from "rxjs/Observable";
+import { of } from "rxjs/observable/of";
+import { tap } from "rxjs/operators";
 
 @Component({
 	selector: "events-page",
@@ -10,15 +12,15 @@ import { EventDetailsPage } from "../../pages/event-details/event-details.page";
 })
 export class EventsPage {
 
+	filteredList$: Observable<EventItem[]>;
+	isEmpty: boolean;
 	eventList: EventItem[];
 	errorMessage: string;
-	events$$: Subscription;
 
 	constructor(
 		private eventService: EventService,
 		private navCtrl: NavController
 	) {
-
 	}
 
 	onItemClick(item: EventItem) {
@@ -27,18 +29,28 @@ export class EventsPage {
 		});
 	}
 
-	ionViewDidLoad() {
-		this.events$$ = this.eventService.getEvents()
-			.subscribe(
-				events => {
-					this.eventList = events
-						.sort((prev,next) => prev.date.diff(next.date))
-				},
-				error => this.errorMessage = <any>error);
+	filterEvents(value: string) {
+		if (!value || value.trim().length < 2) {
+			this.filteredList$ = of(this.eventList).pipe(
+				tap(events => this.isEmpty = events.length === 0)
+			);
+			return;
+		}
+
+		this.filteredList$ = of(this.eventList.filter((event) => {
+			return (event.title.toLowerCase().includes(value.toLowerCase()));
+		})).pipe(
+			tap(events => this.isEmpty = events.length === 0)
+		);
 	}
 
-	ngOnDestroy() {
-		this.events$$.unsubscribe();
+	ionViewDidLoad() {
+		this.filteredList$ = this.eventService.getEvents().pipe(
+			tap(events => {
+				this.eventList = events.sort((prev, next) => prev.date.diff(next.date))
+			}, error => this.errorMessage = <any>error),
+			tap(events => this.isEmpty = events.length === 0)
+		);
 	}
 
 }

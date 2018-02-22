@@ -7,8 +7,12 @@
 </ion-header>
 
 <ion-content padding>
+	<ion-searchbar (ionInput)="filterEvents($event.target.value)" debounce="500"></ion-searchbar>
 	<ion-list>
-		<event-item *ngFor="let event of eventList"
+		<event-item *ngFor="let event of filteredList$ | async"
 		[eventItem]="event" (click)="onItemClick(event)"></event-item>
 	</ion-list>
+	<h2 *ngIf="isEmpty" class="empty-message" text-center >
+		No events
+	</h2>
 </ion-content>
