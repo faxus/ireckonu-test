@@ -1,0 +1,4 @@
+<div class="period-group" margin-top *ngIf="groupList && groupList.length > 0">
+	<label>{{label}}</label>
+</div>
+<event-item *ngFor="let event of groupList" [eventItem]="event" (click)="itemClick.emit(event)"></event-item>

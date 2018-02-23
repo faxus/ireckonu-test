@@ -7,24 +7,16 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar text-center debounce="500"
-		(ionInput)="filterEvents($event.target.value)"
-		placeholder="Search Event"></ion-searchbar>
+	<ion-searchbar text-center debounce="500" (ionInput)="filterEvents($event.target.value)" placeholder="Search Event"></ion-searchbar>
 	<ion-list>
-		<div class="period-group" margin-top *ngIf="todayList && todayList.length > 0">
-			<label>Today</label>
-		</div>
-		<event-item *ngFor="let event of todayList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
-		<div class="period-group" margin-top *ngIf="thisWeekList && thisWeekList.length > 0">
-			<label>Next Week</label>
-		</div>
-		<event-item *ngFor="let event of thisWeekList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
-		<div class="period-group" margin-top *ngIf="otherList && otherList.length > 0">
-			<label>Other</label>
-		</div>
-		<event-item *ngFor="let event of otherList" [eventItem]="event" (click)="onItemClick(event)"></event-item>
+		<event-group label="Today" [groupList]="todayList" (itemClick)="onItemClick($event)"></event-group>
+		<event-group label="This Week" [groupList]="thisWeekList" (itemClick)="onItemClick($event)"></event-group>
+		<event-group label="Other" [groupList]="otherList" (itemClick)="onItemClick($event)"></event-group>
 	</ion-list>
-	<h2 *ngIf="isEmpty" class="empty-message" text-center>
+	<h2 *ngIf="isEmpty && !showError" class="empty-message" text-center>
 		No events
+	</h2>
+	<h2 *ngIf="showError" class="empty-message" text-center>
+		Server is not responding. Try again later.
 	</h2>
 </ion-content>

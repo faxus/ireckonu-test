@@ -1,0 +1,16 @@
+
+.period-group {
+	width: 200px;
+	position: relative;
+	z-index: 1;
+
+	label {
+		background-color: $yellow-color;
+		font-size: 14px;
+		font-style: italic;
+		font-weight: bold;
+		padding: 4px 10px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+}

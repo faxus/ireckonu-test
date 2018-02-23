@@ -14,8 +14,8 @@ export class EventsPage implements OnDestroy {
 	thisWeekList: EventItem[];
 	otherList: EventItem[];
 	eventList: EventItem[];
-	isEmpty: boolean;
-	errorMessage: string;
+	isEmpty: boolean = true;
+	showError: boolean = false;
 	events$$: Subscription
 
 	constructor(
@@ -26,8 +26,13 @@ export class EventsPage implements OnDestroy {
 
 	ionViewDidLoad() {
 		this.events$$ = this.eventService.getEvents().subscribe(
-			events => this.getLists(events),
-			error => this.errorMessage = <any>error
+			events => {
+				this.getLists(events);
+				this.showError = false;
+			},
+			error => {
+				this.showError = true;
+			}
 		);
 	}
 
@@ -37,7 +42,6 @@ export class EventsPage implements OnDestroy {
 
 	getLists(events: EventItem[]) {
 		this.eventList = events.sort((prev, next) => prev.date.diff(next.date));
-		this.isEmpty = events.length === 0;
 		this.groupByPeriod();
 	}
 
@@ -48,10 +52,10 @@ export class EventsPage implements OnDestroy {
 			&& event.title.toLowerCase().includes(filterBy.toLowerCase()));
 		this.otherList = this.eventList.filter(event => event.period === "other"
 			&& event.title.toLowerCase().includes(filterBy.toLowerCase()));
+		this.isEmpty = this.todayList.length + this.thisWeekList.length + this.otherList.length === 0;
 	}
 
 	filterEvents(value: string) {
-		this.isEmpty = this.eventList.length === 0;
 		if (!value || value.trim().length < 2) {
 			this.groupByPeriod();
 			return;
