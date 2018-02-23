@@ -5,7 +5,6 @@ import { catchError } from "rxjs/operators";
 
 @Injectable()
 export class EventClient {
-	//  https://restcountries.eu/rest/v2/all
 	private apiUrl = "https://tsh-app.firebaseio.com/events.json";
 	constructor(
 		private http: HttpClient
