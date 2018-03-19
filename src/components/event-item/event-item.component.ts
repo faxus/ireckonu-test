@@ -19,10 +19,6 @@ export class EventItemComponent {
 		this.eventItem.status = newStatus;
 	}
 
-	getMembersCount(num: number): string {
-		return num > 3 ? `+ ${num - 3} members` : "";
-	}
-
 	getTime(date: Moment): string {
 		const periods = {
 			sameDay: "[Today]",
